@@ -15,7 +15,7 @@ export class Home extends React.Component {
 					<p> Reza Teshnizi </p>
 					<p> Content will be added here! </p>
 					<div>
-						<Mui.IconButton></Mui.Button>
+						{/* <Mui.IconButton></Mui.IconButton> */}
 					</div>
 				</header>
 			</div>
