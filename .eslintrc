@@ -1,12 +1,37 @@
 {
-	"parser": "@typescript-eslint/parser",
-	"parserOptions": {
-		"project": "./tsconfig.json"
-	},
-	"plugins": ["@typescript-eslint"],
-	"extends": ["plugin:@typescript-eslint/recommended"],
+	"extends": ["react-app", "plugin:@typescript-eslint/recommended"],
 	"rules": {
-		"indent": ["error", "tab"],
-		"sort-imports": "warn"
+		// TYPESCRIPT RULES
+		"@typescript-eslint/indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1,
+				"flatTernaryExpressions": true
+			}
+		],
+		"@typescript-eslint/explicit-function-return-type": ["error", { "allowExpressions": true }],
+		"@typescript-eslint/no-object-literal-type-assertion": "off",
+		"@typescript-eslint/no-parameter-properties": "off",
+		"@typescript-eslint/no-useless-constructor": "off",
+		// ESLINT RULES
+		"comma-dangle": ["warn", "always-multiline"],
+		"comma-spacing": "error",
+		"indent": [
+			"error",
+			"tab",
+			{
+				"SwitchCase": 1,
+				"flatTernaryExpressions": true
+			}
+		],
+		"no-debugger": "warn",
+		"no-duplicate-imports": ["warn", { "includeExports": true } ],
+		"no-extra-semi": "error",
+		"no-multiple-empty-lines": ["warn", { "max": 1 }],
+		"no-useless-constructor": "off",
+		"semi": "error",
+		"semi-spacing": "error"
+		// "sort-imports": ["warn", { "memberSyntaxSortOrder": ["single", "all", "multiple", "none"] }],
 	}
 }

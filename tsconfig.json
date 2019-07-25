@@ -1,5 +1,4 @@
 {
-  // REACT SCRIPT DEFAULTS
   "compilerOptions": {
     "target": "es5",
     "lib": [
@@ -18,8 +17,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve"
-    // RTESHNIZI
+    "jsx": "preserve",
+    "noImplicitReturns": true
   },
   "include": [
     "src"
