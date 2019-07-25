@@ -41,6 +41,7 @@ export default {
 					</li>
 				</ul>
 				<h1>How To</h1>
+				{/* https://help.ubuntu.com/community/ServerGUI */}
 				{/* http://kflu.github.io/2017/01/24/2017-01-24-win-x11-forward/ */}
 				{/* https://medium.com/@erikhallstrm/work-remotely-with-pycharm-tensorflow-and-ssh-c60564be862d */}
 			</div>
