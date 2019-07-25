@@ -1,7 +1,8 @@
 import * as React from 'react';
-import * as Router from 'react-router-dom';
-import * as Mui from '@material-ui/core';
+// import * as Router from 'react-router-dom';
+// import * as Mui from '@material-ui/core';
 import ComponentBase from './Base/ComponentBase';
+import CenteredContainer from './Components/CenteredContainer';
 
 export class Home extends ComponentBase {
 	public constructor(props: {}) {
@@ -10,15 +11,15 @@ export class Home extends ComponentBase {
 
 	public render(): JSX.Element {
 		return (
-			<div>
-				<header className="App-header">
+			<header className="App-header">
+				<CenteredContainer>
 					<p> Reza Teshnizi </p>
 					<p> Content will be added here! </p>
 					<div>
-						<Router.Link to='/guides'>Guides</Router.Link>
+						{/* <Router.Link to='/posts'>Posts</Router.Link> */}
 					</div>
-				</header>
-			</div>
+				</CenteredContainer>
+			</header>
 		);
 	}
 }

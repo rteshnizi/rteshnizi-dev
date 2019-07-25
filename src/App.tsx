@@ -6,7 +6,7 @@ import { Home } from './Home';
 import ComponentBase from './Base/ComponentBase';
 import Theme from './Base/Theme';
 import NoRouteMatched from './Components/NoRouteMatched';
-import { Guides } from './Guides';
+import { Posts } from './Posts';
 
 interface AppState {
 	MenuIsOpen: boolean;
@@ -27,7 +27,7 @@ class App extends ComponentBase<Router.RouteComponentProps, AppState> {
 					<CssBaseline />
 					<Router.Switch>
 						<Router.Route exact={true} path="/" component={Home} />
-						<Router.Route exact={true} path="/guides" component={Guides} />
+						<Router.Route path="/posts" component={Posts} />
 						<Router.Route component={NoRouteMatched} />
 					</Router.Switch>
 				</MuiThemeProvider>
