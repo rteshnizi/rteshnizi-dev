@@ -43,7 +43,7 @@ export class SideNav extends ComponentBase<{}, SideNavState> {
 		const posts: JSX.Element[] = [];
 		Medium.posts.forEach((post, ind) => {
 			posts.push(
-				<Mui.ListItem key={ind} button={true} onClick={() => { this.openUrlInNewTab(post.url); }}>
+				<Mui.ListItem key={ind} title={post.title} button={true} onClick={() => { this.openUrlInNewTab(post.url); }}>
 					<Mui.ListItemIcon style={{minWidth: 36}}><PostIcon/></Mui.ListItemIcon>
 					<Mui.ListItemText
 						primary={<div>{post.shortTitle}</div>}
