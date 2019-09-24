@@ -7,6 +7,7 @@ import ComponentBase from './Base/ComponentBase';
 import Theme from './Base/Theme';
 import NoRouteMatched from './Components/NoRouteMatched';
 import { Posts } from './Posts';
+import { SideNav } from './SideNav';
 
 interface AppState {
 	MenuIsOpen: boolean;
@@ -25,6 +26,7 @@ class App extends ComponentBase<Router.RouteComponentProps, AppState> {
 			<div className="App">
 				<MuiThemeProvider theme={Theme}>
 					<CssBaseline />
+					<SideNav />
 					<Router.Switch>
 						<Router.Route exact={true} path="/" component={Home} />
 						<Router.Route path="/posts" component={Posts} />
