@@ -6,7 +6,7 @@ import { Home } from './Home';
 import ComponentBase from './Base/ComponentBase';
 import Theme from './Base/Theme';
 import NoRouteMatched from './Components/NoRouteMatched';
-import { Posts } from './Posts';
+import Posts from './Posts';
 import { SideNav } from './SideNav';
 
 interface AppState {
@@ -23,15 +23,17 @@ class App extends ComponentBase<Router.RouteComponentProps, AppState> {
 
 	public render(): JSX.Element {
 		return (
-			<div className="App">
+			<div style={{ display: "flex" }}>
 				<MuiThemeProvider theme={Theme}>
 					<CssBaseline />
 					<SideNav />
-					<Router.Switch>
-						<Router.Route exact={true} path="/" component={Home} />
-						<Router.Route path="/posts" component={Posts} />
-						<Router.Route component={NoRouteMatched} />
-					</Router.Switch>
+					<main style={{ flexGrow: 1 }}>
+						<Router.Switch>
+							<Router.Route exact={true} path="/" component={Home} />
+							<Router.Route path="/posts" component={Posts} />
+							<Router.Route component={NoRouteMatched} />
+						</Router.Switch>
+					</main>
 				</MuiThemeProvider>
 			</div>
 		);
