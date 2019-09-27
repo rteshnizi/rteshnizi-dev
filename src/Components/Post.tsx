@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Mui from '@material-ui/core';
 import ComponentBase from '../Base/ComponentBase';
-import { MediumPost } from '../Services/edium';
+import { MediumPost } from '../Services/Medium';
 
 interface PostProps {
 	post: MediumPost;

@@ -8,7 +8,7 @@ import PostIcon from '@material-ui/icons/List';
 import ComponentBase from './Base/ComponentBase';
 // import RouterLink from './Components/RouterLink';
 import Theme from './Base/Theme';
-import { Medium } from './Services/edium';
+import { Medium } from './Services/Medium';
 
 interface SideNavState {
 	feedUpdated: boolean;
