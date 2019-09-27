@@ -6,7 +6,7 @@ import * as Mui from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
 import PostIcon from '@material-ui/icons/List';
 import ComponentBase from './Base/ComponentBase';
-import RouterLink from './Components/RouterLink';
+// import RouterLink from './Components/RouterLink';
 import Theme from './Base/Theme';
 import { Medium } from './Services/medium';
 
@@ -81,12 +81,12 @@ export class SideNav extends ComponentBase<{}, SideNavState> {
 			<nav aria-label="mailbox folders">
 				<Mui.Drawer variant="permanent" style={drawerBase} PaperProps={{style: drawerPaper}}>
 					<Mui.List style={{ flexGrow: 1 }}>
-						<RouterLink to={{ pathname: "/" }}>
-							<Mui.ListItem button={true}>
-								<Mui.ListItemIcon style={{minWidth: 36}}><HomeIcon/></Mui.ListItemIcon>
-								<Mui.ListItemText primary="Home" />
-							</Mui.ListItem>
-						</RouterLink>
+						{/* <RouterLink to={{ pathname: "/" }}> */}
+						<Mui.ListItem button={true}>
+							<Mui.ListItemIcon style={{minWidth: 36}}><HomeIcon/></Mui.ListItemIcon>
+							<Mui.ListItemText primary="Home" />
+						</Mui.ListItem>
+						{/* </RouterLink> */}
 						<Mui.ListItem button={true} onClick={() => { this.openUrlInNewTab("https://www.linkedin.com/in/rteshnizi/"); }}>
 							<Mui.ListItemIcon style={{minWidth: 36}}><FontAwesomeIcon icon={faLinkedin}/></Mui.ListItemIcon>
 							<Mui.ListItemText primary="LinkedIn" />

@@ -1,20 +1,18 @@
 import { CssBaseline } from '@material-ui/core';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import * as React from 'react';
-import * as Router from 'react-router-dom';
 import { Home } from './Home';
 import ComponentBase from './Base/ComponentBase';
 import Theme from './Base/Theme';
-import NoRouteMatched from './Components/NoRouteMatched';
 import Posts from './Posts';
-import { SideNav } from './SideNav';
+// import { SideNav } from './SideNav';
 
 interface AppState {
 	MenuIsOpen: boolean;
 }
 
-class App extends ComponentBase<Router.RouteComponentProps, AppState> {
-	public constructor(props: Router.RouteComponentProps) {
+export default class App extends ComponentBase<{}, AppState> {
+	public constructor(props: {}) {
 		super(props);
 		this.state = {
 			MenuIsOpen: false,
@@ -26,18 +24,13 @@ class App extends ComponentBase<Router.RouteComponentProps, AppState> {
 			<div style={{ display: "flex" }}>
 				<MuiThemeProvider theme={Theme}>
 					<CssBaseline />
-					<SideNav />
+					{/* <SideNav /> */}
 					<main style={{ flexGrow: 1 }}>
-						<Router.Switch>
-							<Router.Route exact={true} path="/" component={Home} />
-							<Router.Route path="/posts" component={Posts} />
-							<Router.Route component={NoRouteMatched} />
-						</Router.Switch>
+						<Home />
+						<Posts />
 					</main>
 				</MuiThemeProvider>
 			</div>
 		);
 	}
 }
-
-export default Router.withRouter(App);
