@@ -8,7 +8,7 @@ import PostIcon from '@material-ui/icons/List';
 import ComponentBase from './Base/ComponentBase';
 // import RouterLink from './Components/RouterLink';
 import Theme from './Base/Theme';
-import { Medium } from './Services/medium';
+import { Medium } from './Services/edium';
 
 interface SideNavState {
 	feedUpdated: boolean;
@@ -24,11 +24,8 @@ export class SideNav extends ComponentBase<{}, SideNavState> {
 	}
 
 	public componentDidMount(): void {
-		Medium.fetchPosts()
-			.then((feed) => {
-				Medium.updatePosts(feed);
-				setTimeout(() =>{ this.setState({ feedUpdated: true }); }, 600);
-			})
+		Medium.updatePosts()
+			.then(() => { this.setState({ feedUpdated: true }); })
 			.catch((reason) => { console.error(reason); });
 	}
 
