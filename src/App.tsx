@@ -6,6 +6,7 @@ import ComponentBase from './Base/ComponentBase';
 import Theme from './Base/Theme';
 import Posts from './Posts';
 import { Footer } from './Footer';
+import { Description } from './Description';
 // import { SideNav } from './SideNav';
 
 interface AppState {
@@ -28,6 +29,7 @@ export default class App extends ComponentBase<{}, AppState> {
 					{/* <SideNav /> */}
 					<main style={{ flexGrow: 1 }}>
 						<Bio />
+						<Description />
 						<Posts />
 					</main>
 				</div>

@@ -6,10 +6,12 @@
 	"javascript.preferences.quoteStyle": "single",
 	"typescript.preferences.quoteStyle": "single",
 	"cSpell.words": [
+		"Linkedin",
 		"Synchrogrid",
 		"fontawesome",
 		"fortawesome",
-		"multiline"
+		"multiline",
+		"subheader"
 	],
 	"eslint.validate": [
 		"javascript",

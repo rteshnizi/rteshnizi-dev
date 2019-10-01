@@ -28,7 +28,7 @@ export default class Post extends ComponentBase<PostProps> {
 				<Mui.Paper>
 					<Mui.Link href={this.props.post.url} target="_blank" rel="noopener" style={{ color: 'unset', textDecoration: 'unset' }}>
 						<div style={styles.div}>
-							<Mui.Avatar src="//logo.clearbit.com/medium.com" style={styles.avatar} title="Medium.com"></Mui.Avatar>
+							<Mui.Avatar src="https://logo.clearbit.com/medium.com" style={styles.avatar} title="Medium.com"></Mui.Avatar>
 							<div>
 								<Mui.Typography variant="subtitle2">{this.props.post.title}</Mui.Typography>
 								<Mui.Typography variant="caption">{this.props.post.date.toLocaleString()}</Mui.Typography>
