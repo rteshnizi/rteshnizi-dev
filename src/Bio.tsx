@@ -7,10 +7,6 @@ import ComponentBase from './Base/ComponentBase';
 import ProfilePic from './assets/profile-pic-2.jpeg';
 
 const styles = {
-	avatar: {
-		height: 200,
-		width: 200,
-	} as React.CSSProperties,
 	links: {
 		textDecoration: 'unset',
 	} as React.CSSProperties,
@@ -27,9 +23,9 @@ export class Bio extends ComponentBase {
 				<Mui.Card>
 					<Mui.CardHeader
 						title={
-							<Mui.Typography variant="h4">
+							<div className="name">
 								Reza Teshnizi
-							</Mui.Typography>
+							</div>
 						}
 						subheader={
 							<div>
@@ -41,7 +37,7 @@ export class Bio extends ComponentBase {
 						}
 						avatar={
 							<Mui.Card>
-								<Mui.CardMedia image={ProfilePic} title="Me and my dog, Ashk" style={styles.avatar} />
+								<Mui.CardMedia image={ProfilePic} title="Me and my dog, Ashk" className="avatar" />
 							</Mui.Card>
 						}
 					/>
