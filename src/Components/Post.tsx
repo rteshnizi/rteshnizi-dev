@@ -3,6 +3,16 @@ import * as Mui from '@material-ui/core';
 import ComponentBase from '../Base/ComponentBase';
 import { MediumPost } from '../Services/Medium';
 
+const styles = {
+	avatar: {
+		margin: '0 1vw',
+	} as React.CSSProperties,
+	div: {
+		padding: '1vh 2vw',
+		display: 'flex',
+	} as React.CSSProperties,
+};
+
 interface PostProps {
 	post: MediumPost;
 }
@@ -14,18 +24,19 @@ export default class Post extends ComponentBase<PostProps> {
 
 	public render(): JSX.Element {
 		return (
-			<Mui.GridListTile>
-			<img src={tile.img} alt={tile.title} />
-			<GridListTileBar
-			title={tile.title}
-			subtitle={<span>by: {tile.author}</span>}
-			actionIcon={
-				<IconButton aria-label={`info about ${tile.title}`} className={classes.icon}>
-				<InfoIcon />
-				</IconButton>
-			}
-			/>
-			</Mui.GridListTile>
+			<Mui.Grid item={true} xs={12}>
+				<Mui.Paper>
+					<Mui.Link href={this.props.post.url} target="_blank" rel="noopener" style={{ color: 'unset', textDecoration: 'unset' }}>
+						<div style={styles.div}>
+							<Mui.Avatar src="//logo.clearbit.com/medium.com" style={styles.avatar} title="Medium.com"></Mui.Avatar>
+							<div>
+								<Mui.Typography variant="subtitle2">{this.props.post.title}</Mui.Typography>
+								<Mui.Typography variant="caption">{this.props.post.date.toLocaleString()}</Mui.Typography>
+							</div>
+						</div>
+					</Mui.Link>
+				</Mui.Paper>
+			</Mui.Grid>
 		);
 	}
 }

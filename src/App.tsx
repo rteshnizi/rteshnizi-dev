@@ -1,10 +1,11 @@
 import { CssBaseline } from '@material-ui/core';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import * as React from 'react';
-import { Home } from './Home';
+import { Bio } from './Bio';
 import ComponentBase from './Base/ComponentBase';
 import Theme from './Base/Theme';
 import Posts from './Posts';
+import { Footer } from './Footer';
 // import { SideNav } from './SideNav';
 
 interface AppState {
@@ -21,16 +22,17 @@ export default class App extends ComponentBase<{}, AppState> {
 
 	public render(): JSX.Element {
 		return (
-			<div style={{ display: "flex" }}>
-				<MuiThemeProvider theme={Theme}>
-					<CssBaseline />
+			<MuiThemeProvider theme={Theme}>
+				<CssBaseline />
+				<div style={{ display: "flex" }}>
 					{/* <SideNav /> */}
 					<main style={{ flexGrow: 1 }}>
-						<Home />
+						<Bio />
 						<Posts />
 					</main>
-				</MuiThemeProvider>
-			</div>
+				</div>
+				<Footer />
+			</MuiThemeProvider>
 		);
 	}
 }

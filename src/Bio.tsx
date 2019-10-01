@@ -8,7 +8,7 @@ const headerStyle: React.CSSProperties = {
 	fontSize: "calc(10px + 2vmin)",
 };
 
-export class Home extends ComponentBase {
+export class Bio extends ComponentBase {
 	public constructor(props: {}) {
 		super(props);
 	}

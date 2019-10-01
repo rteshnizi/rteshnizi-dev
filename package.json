@@ -13,6 +13,7 @@
 		"lodash": "^4.17.14",
 		"react": "^16.8.6",
 		"react-dom": "^16.8.6",
+		"react-loading-overlay": "^1.0.1",
 		"rss-parser": "^3.7.2",
 		"typeface-roboto": "0.0.54"
 	},
