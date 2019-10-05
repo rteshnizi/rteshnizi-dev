@@ -7,11 +7,11 @@
 	"typescript.preferences.quoteStyle": "single",
 	"cSpell.words": [
 		"Linkedin",
-		"Synchrogrid",
 		"fontawesome",
 		"fortawesome",
 		"multiline",
-		"subheader"
+		"subheader",
+		"yeeted"
 	],
 	"eslint.validate": [
 		"javascript",
