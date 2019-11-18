@@ -6,6 +6,7 @@
 	"javascript.preferences.quoteStyle": "single",
 	"typescript.preferences.quoteStyle": "single",
 	"cSpell.words": [
+		"Amirkabir",
 		"Linkedin",
 		"fontawesome",
 		"fortawesome",
@@ -18,5 +19,6 @@
 		"javascriptreact",
 		{ "language": "typescript", "autoFix": true },
 		{ "language": "typescriptreact", "autoFix": true }
-	]
+	],
+	"typescript.format.insertSpaceAfterConstructor": true
 }
