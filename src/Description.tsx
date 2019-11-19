@@ -10,7 +10,7 @@ export class Description extends ComponentBase {
 		let k = 0;
 		return [
 			<p key={k++}>
-				I am is a PhD student in <a href="https://engineering.tamu.edu/cse/index.html">Computer Science</a> under the supervision of <a href="http://robotics.cs.tamu.edu/dshell/">Dr. Dylan Shell</a> at <a href="https://tamu.edu/">Texas A&amp;M University</a>.<br />
+				I am a PhD student in <a href="https://engineering.tamu.edu/cse/index.html">Computer Science</a> under the supervision of <a href="http://robotics.cs.tamu.edu/dshell/">Dr. Dylan Shell</a> at <a href="https://tamu.edu/">Texas A&amp;M University</a>.<br />
 				My research interest include Robotics, Artificial Intelligence, and Machine Learning. I enjoys studying Motion Planning and Reinforcement Learning.
 			</p>,
 			<p key={k++}>
