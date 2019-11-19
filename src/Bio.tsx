@@ -6,6 +6,7 @@ import { faGraduationCap, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import ComponentBase from './Base/ComponentBase';
 import ProfilePic from './assets/profile-pic-2.jpeg';
 import Theme from './Base/Theme';
+import IconLink from './Components/IconLink';
 
 const styles = {
 	links: {
@@ -88,19 +89,25 @@ export class Bio extends ComponentBase<{}, State> {
 								</Mui.Typography>
 							</Mui.Popover>
 							<Mui.Grid item={true}>
-								<Mui.Link onClick={this.showEmail} style={styles.links}>
-									<FontAwesomeIcon title="Email" icon={faEnvelope} size="lg" />
-								</Mui.Link>
+								<IconLink
+									icon={<FontAwesomeIcon icon={faEnvelope} size="lg" />}
+									label="Email"
+									onClick={this.showEmail}
+								/>
 							</Mui.Grid>
 							<Mui.Grid item={true}>
-								<a href="https://www.linkedin.com/in/rteshnizi/" target="_blank" rel="noopener noreferrer" style={styles.links}>
-									<FontAwesomeIcon title="Linkedin Profile" icon={faLinkedin} size="lg" />
-								</a>
+								<IconLink
+									icon={<FontAwesomeIcon icon={faLinkedin} size="lg" />}
+									label="Linkedin Profile"
+									url="https://www.linkedin.com/in/rteshnizi/"
+								/>
 							</Mui.Grid>
 							<Mui.Grid item={true}>
-								<a href="https://scholar.google.com/citations?user=s10QCcoAAAAJ&hl=en" target="_blank" rel="noopener noreferrer">
-									<FontAwesomeIcon title="Google Scholar Profile" icon={faGraduationCap} size="lg" />
-								</a>
+								<IconLink
+									icon={<FontAwesomeIcon icon={faGraduationCap} size="lg" />}
+									label="Google Scholar Profile"
+									url="https://scholar.google.com/citations?user=s10QCcoAAAAJ&hl=en"
+								/>
 							</Mui.Grid>
 						</Mui.Grid>
 					</Mui.CardContent>
