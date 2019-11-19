@@ -97,16 +97,16 @@ export class Bio extends ComponentBase<{}, State> {
 							</Mui.Grid>
 							<Mui.Grid item={true}>
 								<IconLink
-									icon={<FontAwesomeIcon icon={faLinkedin} size="lg" />}
-									label="Linkedin Profile"
-									url="https://www.linkedin.com/in/rteshnizi/"
+									icon={<FontAwesomeIcon icon={faGraduationCap} size="lg" />}
+									label="Google Scholar Profile"
+									url="https://scholar.google.com/citations?user=s10QCcoAAAAJ&hl=en"
 								/>
 							</Mui.Grid>
 							<Mui.Grid item={true}>
 								<IconLink
-									icon={<FontAwesomeIcon icon={faGraduationCap} size="lg" />}
-									label="Google Scholar Profile"
-									url="https://scholar.google.com/citations?user=s10QCcoAAAAJ&hl=en"
+									icon={<FontAwesomeIcon icon={faLinkedin} size="lg" />}
+									label="Linkedin Profile"
+									url="https://www.linkedin.com/in/rteshnizi/"
 								/>
 							</Mui.Grid>
 							<Mui.Grid item={true}>
