@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Mui from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faGraduationCap, faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import ComponentBase from './Base/ComponentBase';
 import ProfilePic from './assets/profile-pic-2.jpeg';
@@ -107,6 +107,13 @@ export class Bio extends ComponentBase<{}, State> {
 									icon={<FontAwesomeIcon icon={faGraduationCap} size="lg" />}
 									label="Google Scholar Profile"
 									url="https://scholar.google.com/citations?user=s10QCcoAAAAJ&hl=en"
+								/>
+							</Mui.Grid>
+							<Mui.Grid item={true}>
+								<IconLink
+									icon={<FontAwesomeIcon icon={faGithub} size="lg" />}
+									label="Github Profile"
+									url="https://github.com/rteshnizi"
 								/>
 							</Mui.Grid>
 						</Mui.Grid>
