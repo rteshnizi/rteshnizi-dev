@@ -102,6 +102,13 @@ export class Bio extends ComponentBase<{}, State> {
 									url="https://scholar.google.com/citations?user=s10QCcoAAAAJ&hl=en"
 								/>
 							</Mui.Grid>
+							{/* <Mui.Grid item={true}>
+								<IconLink
+									icon={<Mui.Avatar src="https://logo.clearbit.com/ieee.org?greyscale=true" style={{ width: 30, height: 30 }} />}
+									label="IEEE Xplore Profile"
+									url="https://ieeexplore.ieee.org/author/37085347277"
+								/>
+							</Mui.Grid> */}
 							<Mui.Grid item={true}>
 								<IconLink
 									icon={<FontAwesomeIcon icon={faLinkedin} size="lg" />}

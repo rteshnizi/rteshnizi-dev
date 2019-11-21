@@ -25,21 +25,19 @@ export default class App extends ComponentBase<{}, AppState> {
 		return (
 			<MuiThemeProvider theme={Theme}>
 				<Mui.CssBaseline />
-				<div style={{ display: "flex" }}>
-					{/* <SideNav /> */}
-					<main style={{ flexGrow: 1 }}>
-						<Bio />
-						<Mui.Grid container={true} style={{ flexGrow: 1 }}>
-							<Mui.Grid item={true} xs={1}>&nbsp;</Mui.Grid>
-							<Mui.Grid item={true} xs={10}>
-								<Description />
-								<Posts />
-							</Mui.Grid>
-							<Mui.Grid item={true} xs={1}>&nbsp;</Mui.Grid>
+				{/* <SideNav /> */}
+				<main>
+					<Bio />
+					<Mui.Grid container={true} style={{ flexGrow: 1 }}>
+						<Mui.Grid item={true} xs={1}>&nbsp;</Mui.Grid>
+						<Mui.Grid item={true} xs={10}>
+							<Description />
+							<Posts />
 						</Mui.Grid>
-					</main>
-				</div>
-				<Footer />
+						<Mui.Grid item={true} xs={1}>&nbsp;</Mui.Grid>
+					</Mui.Grid>
+					<Footer />
+				</main>
 			</MuiThemeProvider>
 		);
 	}
