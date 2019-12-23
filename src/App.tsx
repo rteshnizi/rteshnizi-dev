@@ -1,4 +1,4 @@
-import { CssBaseline } from '@material-ui/core';
+import * as Mui from '@material-ui/core';
 import { MuiThemeProvider } from '@material-ui/core/styles';
 import * as React from 'react';
 import { Bio } from './Bio';
@@ -24,16 +24,20 @@ export default class App extends ComponentBase<{}, AppState> {
 	public render(): JSX.Element {
 		return (
 			<MuiThemeProvider theme={Theme}>
-				<CssBaseline />
-				<div style={{ display: "flex" }}>
-					{/* <SideNav /> */}
-					<main style={{ flexGrow: 1 }}>
-						<Bio />
-						<Description />
-						<Posts />
-					</main>
-				</div>
-				<Footer />
+				<Mui.CssBaseline />
+				{/* <SideNav /> */}
+				<main>
+					<Bio />
+					<Mui.Grid container={true} style={{ flexGrow: 1 }}>
+						<Mui.Grid item={true} xs={1}>&nbsp;</Mui.Grid>
+						<Mui.Grid item={true} xs={10}>
+							<Description />
+							<Posts />
+						</Mui.Grid>
+						<Mui.Grid item={true} xs={1}>&nbsp;</Mui.Grid>
+					</Mui.Grid>
+					<Footer />
+				</main>
 			</MuiThemeProvider>
 		);
 	}

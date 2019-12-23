@@ -4,7 +4,7 @@ import { Link, Dialog, DialogTitle, DialogContent, DialogContentText, IconButton
 import CloseIcon from '@material-ui/icons/Close';
 
 const styles = {
-	link: { color: 'unset', cursor: 'pointer' } as React.CSSProperties,
+	link: { color: 'unset', textDecoration: 'underline', cursor: 'pointer' } as React.CSSProperties,
 	closeButton: { position: 'absolute', right: 8 } as React.CSSProperties,
 };
 
@@ -29,7 +29,7 @@ export class Footer extends ComponentBase<{}, State> {
 				console.warn("Google was yeeted!");
 				return;
 			}
-			const googleAnalyticsNode = <Link key="2" style={styles.link} onClick={() => { this.setShowGaDialog(true); }}>&nbsp;I use Google Analytics.</Link>;
+			const googleAnalyticsNode = <Link style={styles.link} onClick={() => { this.setShowGaDialog(true); }}>&nbsp;I use Google Analytics.</Link>;
 			this.setState({ googleAnalyticsNode });
 		}, 1500);
 	}
