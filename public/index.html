@@ -16,7 +16,7 @@
 		function onGaCompleted(succeeded) {
 			// Ad Blocking
 			if (!succeeded) {
-				console.warn("GA not failed to load.");
+				console.warn("GA failed to load.");
 				return;
 			}
 			// https://stackoverflow.com/a/56474445/750567
@@ -35,16 +35,16 @@
 		gtag('js', new Date());
 		gtag('config', 'UA-50107048-3');
 	</script>
-	<div style="display: none;">
+</head>
+<body>
+	<noscript>
 		<!-- Bingbot doesn't render JS -->
+		<h1>Reza Teshnizi</h1>
 		Dog Dad
 		PhD Candidate @ Texas A&M University
 		Robotics and AI Researcher
 		Senior Software Engineer and Manager
-	</div>
-</head>
-<body>
-	<noscript>You need to enable JavaScript to run this app.</noscript>
+	</noscript>
 	<div id="root"></div>
 </body>
 </html>
