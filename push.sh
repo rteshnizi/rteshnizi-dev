@@ -12,8 +12,8 @@ prepare_output() {
 }
 
 setup_git() {
-	git config --global user.email "travis@travis-ci.org"
-	git config --global user.name "Travis CI (on behalf of Reza Teshnizi)"
+	git config --global user.email "rht1369@gmail.com"
+	git config --global user.name "Reza Teshnizi"
 }
 
 prepare_prod() {
