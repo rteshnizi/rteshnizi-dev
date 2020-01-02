@@ -16,7 +16,10 @@ export class Description extends ComponentBase {
 			<p key={k++}>
 				I received my BSc in 2012 from <a href="https://aut.ac.ir/">Amirkabir University of Technology (Tehran Polytechnic)</a> in Computer Engineering and my MS in 2015 from <a href="https://tamu.edu/">Texas A&amp;M University</a> in Computer Science.
 				My master's thesis is titled <a href="https://oaktrust.library.tamu.edu/handle/1969.1/155694"><b>"Motion Planning for a Tethered Mobile Robot"</b></a>.
-				I have experience as a Software Engineer and manager.
+			</p>,
+			<p key={k++}>
+				I have extensive experience as a Software Engineer and manager.
+				I have worked with many different environments and tech stacks including Linux and Windows C++, .NET Framework, NodeJs, Electron, and many other frontend technologies (they come and go so fast, it's not worth listing).
 			</p>,
 			<p key={k++}>
 				My dog's name is Ashk. Literally <a href="https://translate.google.com/?client=firefox-a&hl=en#view=home&op=translate&sl=auto&tl=en&text=%D8%A7%D8%B4%DA%A9">translated</a> from persian, it means teardrop.
