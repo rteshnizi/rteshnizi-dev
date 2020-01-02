@@ -19,7 +19,7 @@ export class Description extends ComponentBase {
 			</p>,
 			<p key={k++}>
 				I have extensive experience as a Software Engineer and manager.
-				I have worked with many different environments and tech stacks including Linux and Windows C++, .NET Framework, NodeJs, Electron, and many other frontend technologies (they come and go so fast, it's not worth listing).
+				I have worked with many different environments and tech stacks including Linux and Windows C++, .NET, NodeJs, Electron, and many other frontend technologies (they come and go so fast, it's not worth listing).
 			</p>,
 			<p key={k++}>
 				My dog's name is Ashk. Literally <a href="https://translate.google.com/?client=firefox-a&hl=en#view=home&op=translate&sl=auto&tl=en&text=%D8%A7%D8%B4%DA%A9">translated</a> from persian, it means teardrop.
