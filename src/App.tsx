@@ -1,20 +1,30 @@
 import * as Mui from '@material-ui/core';
 import { MuiThemeProvider } from '@material-ui/core/styles';
+// import { CSSProperties as MuiCssProps } from '@material-ui/core/styles/withStyles';
 import * as React from 'react';
-import { Bio } from './Bio';
+import { Bio } from './UI/Bio';
 import ComponentBase from './Base/ComponentBase';
 import Theme from './Base/Theme';
-import Posts from './Posts';
-import { Footer } from './Footer';
-import { Description } from './Description';
+import Posts from './UI/Posts';
+import { Footer } from './UI/Footer';
+import Publications from './UI/Publications';
 // import { SideNav } from './SideNav';
 
 interface AppState {
 	MenuIsOpen: boolean;
 }
 
-export default class App extends ComponentBase<{}, AppState> {
-	public constructor(props: {}) {
+// const styles = (theme: Mui.Theme): Record<never, MuiCssProps | (() => MuiCssProps)> => Mui.createStyles(
+// 	{
+
+// 	}
+// );
+
+// type AppProps = Mui.WithStyles<typeof styles>;
+type AppProps = {};
+
+class App extends ComponentBase<AppProps, AppState> {
+	public constructor(props: AppProps) {
 		super(props);
 		this.state = {
 			MenuIsOpen: false,
@@ -23,7 +33,7 @@ export default class App extends ComponentBase<{}, AppState> {
 
 	public render(): JSX.Element {
 		return (
-			<MuiThemeProvider theme={Theme}>
+			<MuiThemeProvider theme={Theme.MuiTheme}>
 				<Mui.CssBaseline />
 				{/* <SideNav /> */}
 				<main>
@@ -31,8 +41,14 @@ export default class App extends ComponentBase<{}, AppState> {
 					<Mui.Grid container={true} style={{ flexGrow: 1 }}>
 						<Mui.Grid item={true} xs={1}>&nbsp;</Mui.Grid>
 						<Mui.Grid item={true} xs={10}>
-							<Description />
-							<Posts />
+							<Mui.Grid container={true} spacing={3}>
+								<Mui.Grid item={true} xs={12} sm={6}>
+									<Publications />
+								</Mui.Grid>
+								<Mui.Grid item={true} xs={12} sm={6}>
+									<Posts />
+								</Mui.Grid>
+							</Mui.Grid>
 						</Mui.Grid>
 						<Mui.Grid item={true} xs={1}>&nbsp;</Mui.Grid>
 					</Mui.Grid>
@@ -42,3 +58,6 @@ export default class App extends ComponentBase<{}, AppState> {
 		);
 	}
 }
+
+export default App;
+// export default Mui.withStyles(styles)(App);

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import ComponentBase from './Base/ComponentBase';
+import ComponentBase from '../Base/ComponentBase';
 import { Link, Dialog, DialogTitle, DialogContent, DialogContentText, IconButton } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 
