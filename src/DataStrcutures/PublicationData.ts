@@ -1,5 +1,6 @@
 import { BibEntry } from 'bibtex';
 import moment from 'moment';
+import { PublicationMap, TexKey } from '../Base/PublicationMap';
 
 interface Author {
 	fName: string;
@@ -14,10 +15,10 @@ export default class PublicationData {
 	public date: moment.Moment;
 	public venue: string;
 	public acceptance: number;
+	public file: string;
 	public doi?: string;
 	public url?: string;
-	public file?: string;
-	public constructor(bibEntry: BibEntry, public texKey: string) {
+	public constructor(bibEntry: BibEntry, public texKey: TexKey) {
 		const bibAuthor = bibEntry.getAuthors();
 		const authors: Author[] = [];
 		if (bibAuthor) {
@@ -35,5 +36,6 @@ export default class PublicationData {
 		this.date = moment(`${bibEntry.getFieldAsString("year")}-${bibEntry.getFieldAsString("month")}`, "YYYYMM");
 		this.venue = bibEntry.getFieldAsString("booktitle") as string || "";
 		this.acceptance = Number(bibEntry.getFieldAsString("acceptance"));
+		this.file = PublicationMap[texKey];
 	}
 }
