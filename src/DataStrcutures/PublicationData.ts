@@ -34,7 +34,7 @@ export default class PublicationData {
 		this.title = `${bibEntry.getFieldAsString("title")}`;
 		this.abstract = `${bibEntry.getFieldAsString("abstract")}`;
 		this.date = moment(`${bibEntry.getFieldAsString("year")}-${bibEntry.getFieldAsString("month")}`, "YYYYMM");
-		this.venue = bibEntry.getFieldAsString("booktitle") as string || "";
+		this.venue = bibEntry.getFieldAsString("booktitle") as string || bibEntry.getFieldAsString("journal") as string || "";
 		this.acceptance = Number(bibEntry.getFieldAsString("acceptance"));
 		this.file = PublicationMap[texKey];
 	}
