@@ -30,7 +30,7 @@ export default class Posts extends ComponentBase<{}, PostsState> {
 
 	public render(): React.ReactNode {
 		return (
-			<LinkContainer loading={!this.state.loaded} title={"Medium Posts"}>
+			<LinkContainer loading={!this.state.loaded} title={"Blog Posts"}>
 				{this.state.posts.map((post) => (<Post key={post.url} post={post} />))}
 			</LinkContainer>
 		);
