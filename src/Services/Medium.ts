@@ -28,7 +28,7 @@ export class Medium {
 	public static updatePosts(): Promise<void> {
 		return new Promise((resolve, reject) => {
 			this.parser.parseURL("https://cors-anywhere.herokuapp.com/https://medium.com/feed/@reza.teshnizi")
-				.then((feed: RssParser.Output) => {
+				.then((feed: RssParser.Output<{}>) => {
 					this._posts = [];
 					feed.items && feed.items.forEach((post) => {
 						this._posts.push(new MediumPost(post));
