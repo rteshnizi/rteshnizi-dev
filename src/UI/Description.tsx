@@ -17,7 +17,7 @@ export class Description extends ComponentBase {
 		const paragraphs = [
 			<p key={k++}>
 				I am a PhD student in <a href="https://engineering.tamu.edu/cse/index.html">Computer Science</a> under the supervision of <a href="http://robotics.cs.tamu.edu/dshell/">Dr. Dylan Shell</a> at <a href="https://tamu.edu/">Texas A&amp;M University</a>.<br />
-				My research interest broadly include Robotics and Artificial Intelligence, more specifically Behavior Modeling, Motion Planning, Reinforcement Learning.
+				My research interest broadly includes Robotics and Artificial Intelligence, and more specifically, Behavior Modeling, Motion Planning, and Reinforcement Learning.
 			</p>,
 			<p key={k++}>
 				I received my BSc in 2012 from <a href="https://aut.ac.ir/">Amirkabir University of Technology (Tehran Polytechnic)</a> in Computer Engineering and my MS in 2015 from <a href="https://tamu.edu/">Texas A&amp;M University</a> in Computer Science.
