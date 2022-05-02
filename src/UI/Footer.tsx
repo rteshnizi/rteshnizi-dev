@@ -2,6 +2,7 @@ import * as React from 'react';
 import ComponentBase from '../Base/ComponentBase';
 import { Link, Dialog, DialogTitle, DialogContent, DialogContentText, IconButton } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
+import TimeService from '../Services/Time';
 
 const styles = {
 	link: { color: 'unset', textDecoration: 'underline', cursor: 'pointer' } as React.CSSProperties,
@@ -64,7 +65,7 @@ export class Footer extends ComponentBase<{}, State> {
 					</DialogContent>
 				</Dialog>
 				<p>
-					Copyright &copy; 2019 Reza Teshnizi, All rights reserved.
+					Copyright &copy; { TimeService.Year } Reza Teshnizi, All rights reserved.
 					Logos provided by <a href="https://clearbit.com" target="_blank" rel="noopener noreferrer">Clearbit</a>.
 					I encourage using <a href="https://firefox.com" target="_blank" rel="noopener noreferrer">Firefox</a> as your main browser.
 					{this.state.googleAnalyticsNode}
