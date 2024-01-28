@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Mui from '@material-ui/core';
-// eslint-disable-next-line @typescript-eslint/ban-ts-ignore
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import LoadingOverlay from 'react-loading-overlay';
 import ComponentBase from '../Base/ComponentBase';

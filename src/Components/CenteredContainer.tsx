@@ -6,7 +6,7 @@ interface CenteredContainerProps {
 	style?: React.CSSProperties;
 }
 
-export default class CenteredContainer extends ComponentBase<CenteredContainerProps, {}> {
+export default class CenteredContainer extends ComponentBase<CenteredContainerProps, Record<string, never>> {
 	public render(): React.ReactNode {
 		return (
 			<div style={{

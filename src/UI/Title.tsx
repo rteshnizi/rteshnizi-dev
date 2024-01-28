@@ -7,8 +7,8 @@ interface State {
 	emailAnchor: HTMLAnchorElement | null;
 }
 
-export class Title extends ComponentBase<{}, State> {
-	public constructor(props: {}) {
+export class Title extends ComponentBase<Record<string, never>, State> {
+	public constructor(props: Record<string, never>) {
 		super(props);
 		this.state = {
 			emailAnchor: null,

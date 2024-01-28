@@ -2,7 +2,7 @@ import * as Mui from '@material-ui/core';
 import React from 'react';
 import ComponentBase from '../Base/ComponentBase';
 import Theme from '../Base/Theme';
-import PublicationData from '../DataStrcutures/PublicationData';
+import PublicationData from '../DataStructures/PublicationData';
 
 const MY_LNAME = "TESHNIZI";
 

@@ -1,9 +1,9 @@
-import { createMuiTheme } from '@material-ui/core';
+import { createTheme } from '@material-ui/core/styles';
 import * as React from "react";
 import TimeService from '../Services/Time';
 
 const theme = {
-	MuiTheme: createMuiTheme({
+	MuiTheme: createTheme({
 		palette: {
 			type: TimeService.isDay ? 'light' : 'dark',
 		},

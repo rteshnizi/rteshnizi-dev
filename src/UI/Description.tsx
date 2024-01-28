@@ -8,7 +8,7 @@ const styles = {
 };
 
 export class Description extends ComponentBase {
-	public constructor(props: {}) {
+	public constructor(props: Record<string, never>) {
 		super(props);
 	}
 

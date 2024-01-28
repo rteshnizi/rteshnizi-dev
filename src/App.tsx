@@ -21,7 +21,7 @@ interface AppState {
 // );
 
 // type AppProps = Mui.WithStyles<typeof styles>;
-type AppProps = {};
+type AppProps = Record<string, never>;
 
 class App extends ComponentBase<AppProps, AppState> {
 	public constructor(props: AppProps) {

@@ -6,14 +6,7 @@
 	"javascript.preferences.quoteStyle": "single",
 	"typescript.preferences.quoteStyle": "single",
 	"cSpell.words": [
-		"Amirkabir",
-		"Linkedin",
-		"bibtex",
-		"fontawesome",
-		"fortawesome",
-		"multiline",
-		"subheader",
-		"yeeted"
+		"bibtex"
 	],
 	"eslint.validate": [
 		"javascript",

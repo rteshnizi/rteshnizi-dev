@@ -14,8 +14,8 @@ interface State {
 	showGADialog: boolean;
 }
 
-export class Footer extends ComponentBase<{}, State> {
-	public constructor(props: {}) {
+export class Footer extends ComponentBase<Record<string, never>, State> {
+	public constructor(props: Record<string, never>) {
 		super(props);
 		this.state = {
 			googleAnalyticsNode: null,

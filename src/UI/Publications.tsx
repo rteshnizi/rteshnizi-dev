@@ -5,7 +5,7 @@ import LinkContainer from '../Components/LinkContainer';
 import { Publication } from '../Components/Publication';
 import bibFilePath from '../assets/bibtex.bib';
 import { map } from 'lodash';
-import PublicationData from '../DataStrcutures/PublicationData';
+import PublicationData from '../DataStructures/PublicationData';
 import { TexKey } from '../Base/PublicationMap';
 
 export interface PostsState {
@@ -13,8 +13,8 @@ export interface PostsState {
 	publicationEls: React.ReactElement[];
 }
 
-export default class Publications extends ComponentBase<{}, PostsState> {
-	public constructor(props: {}) {
+export default class Publications extends ComponentBase<Record<string, never>, PostsState> {
+	public constructor(props: Record<string, never>) {
 		super(props);
 		this.state = {
 			loaded: false,

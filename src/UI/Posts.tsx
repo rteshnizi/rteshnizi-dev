@@ -9,8 +9,8 @@ export interface PostsState {
 	posts: MediumPost[];
 }
 
-export default class Posts extends ComponentBase<{}, PostsState> {
-	public constructor(props: {}) {
+export default class Posts extends ComponentBase<Record<string, never>, PostsState> {
+	public constructor(props: Record<string, never>) {
 		super(props);
 		this.state = {
 			loaded: false,

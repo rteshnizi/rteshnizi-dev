@@ -1,7 +1,7 @@
 import React from 'react';
 
 /** The Base Class for All Components */
-export default abstract class ComponentBase<PropsType = {}, StateType = {}> extends React.Component<PropsType, StateType> {
+export default abstract class ComponentBase<PropsType = Record<string, never>, StateType = Record<string, never>> extends React.Component<PropsType, StateType> {
 	public constructor(props: PropsType) {
 		super(props);
 		this.BindSubclassMembers();
