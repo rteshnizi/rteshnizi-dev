@@ -57,6 +57,5 @@ prepare_prod
 echo "Reza --> Adding the changes"
 commit_website_files
 echo "Reza --> Committed the crimes, now pushing with force!"
-upload_files
-echo "Reza --> Deployed, cleaning up."
-cleanup
+upload_files || cleanup
+echo "Reza --> Deployed."
