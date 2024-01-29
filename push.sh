@@ -21,7 +21,8 @@ setup_git() {
 }
 
 cleanup() {
-	if [ -d "prod" ]; then
+	cd "$(dirname "$0")"
+	if [ -d ./prod ]; then
 		echo "Reza --> Cleaning up."
 		rm -rf prod
 	fi
