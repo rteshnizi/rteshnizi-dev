@@ -12,8 +12,18 @@ prepare_output() {
 }
 
 setup_git() {
-	git config --global user.email "rht1369@gmail.com"
-	git config --global user.name "Reza Teshnizi"
+	if [[ -z "${GH_TOKEN}" ]]; then
+		echo "Git hub token not defined."
+		exit 1
+	fi
+	# git config --global user.email "rht1369@gmail.com"
+	# git config --global user.name "Reza Teshnizi"
+}
+
+cleanup() {
+	if [ -d "prod" ]; then
+		rm -rf prod
+	fi
 }
 
 prepare_prod() {
@@ -38,13 +48,15 @@ upload_files() {
 echo "Reza --> Grabbing commit message"
 grab_commit_msg
 echo "Reza --> Preparing the output and cleaning dev files"
+cleanup
 prepare_output
-# echo "Reza --> Setting up Git user and add prod remote"
-# setup_git
+echo "Reza --> Setting up Git user and add prod remote"
+setup_git
 echo "Reza --> Prepare prod folder"
 prepare_prod
 echo "Reza --> Adding the changes"
 commit_website_files
-echo "Reza --> Committed the crimes, Now pushing with force!"
+echo "Reza --> Committed the crimes, now pushing with force!"
 upload_files
-echo "Reza --> Deployed"
+echo "Reza --> Deployed, cleaning up."
+cleanup
