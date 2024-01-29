@@ -1,4 +1,5 @@
 #!/bin/sh
+MY_DIR="$(echo $(cd $(dirname $0); pwd))"
 set -e
 
 grab_commit_msg() {
@@ -21,8 +22,7 @@ setup_git() {
 }
 
 cleanup() {
-	cd "$(dirname "$0")"
-	if [ -d ./prod ]; then
+	if [ -d "${MY_DIR}/prod" ]; then
 		echo "Reza --> Cleaning up."
 		rm -rf prod
 	fi
