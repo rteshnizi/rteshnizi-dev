@@ -6,7 +6,11 @@
 	"javascript.preferences.quoteStyle": "single",
 	"typescript.preferences.quoteStyle": "single",
 	"cSpell.words": [
-		"bibtex"
+		"bibtex",
+		"fontawesome",
+		"fortawesome",
+		"roboto",
+		"rteshnizi"
 	],
 	"eslint.validate": [
 		"javascript",
