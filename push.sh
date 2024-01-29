@@ -24,13 +24,13 @@ setup_git() {
 cleanup() {
 	if [ -d "${MY_DIR}/prod" ]; then
 		echo "Reza --> Cleaning up."
-		rm -rf prod
+		rm -rf "${MY_DIR}/prod"
 	fi
 }
 
 prepare_prod() {
 	git clone https://rteshnizi:${GH_TOKEN}@github.com/rteshnizi/rteshnizi.github.io.git prod
-	cd prod
+	cd "${MY_DIR}/prod"
 	ls -la
 	find ./ -mindepth 1 ! -regex '^.\/\.git\(\/.*\)?' -delete # CSpell: ignore - mindepth
 	cp -v -r ../build/* ./
@@ -58,5 +58,5 @@ setup_git
 echo "Reza --> Prepare prod folder."
 prepare_prod
 echo "Reza --> Adding the changes."
-commit_website_files || upload_files || cleanup
+(commit_website_files && upload_files) || cleanup
 echo "Reza --> Deployed."
