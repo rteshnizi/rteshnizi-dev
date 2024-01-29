@@ -13,7 +13,7 @@ prepare_output() {
 
 setup_git() {
 	if [[ -z "${GH_TOKEN}" ]]; then
-		echo "Git hub token not defined."
+		echo "Github token not defined."
 		exit 1
 	fi
 	# git config --global user.email "rht1369@gmail.com"
@@ -22,12 +22,13 @@ setup_git() {
 
 cleanup() {
 	if [ -d "prod" ]; then
+		echo "Reza --> Cleaning up."
 		rm -rf prod
 	fi
 }
 
 prepare_prod() {
-	git clone https://${GH_TOKEN}@github.com/rteshnizi/rteshnizi.github.io.git prod
+	git clone https://rteshnizi:${GH_TOKEN}@github.com/rteshnizi/rteshnizi.github.io.git prod
 	cd prod
 	ls -la
 	find ./ -mindepth 1 ! -regex '^.\/\.git\(\/.*\)?' -delete # CSpell: ignore - mindepth
@@ -42,20 +43,19 @@ commit_website_files() {
 }
 
 upload_files() {
+	echo "Reza --> Committed the crimes, now pushing with force!"
 	git push origin master --force
 }
 
-echo "Reza --> Grabbing commit message"
+echo "Reza --> Grabbing commit message."
 grab_commit_msg
-echo "Reza --> Preparing the output and cleaning dev files"
+echo "Reza --> Preparing the output and cleaning dev files."
 cleanup
 prepare_output
-echo "Reza --> Setting up Git user and add prod remote"
+echo "Reza --> Setting up Git user and add prod remote."
 setup_git
-echo "Reza --> Prepare prod folder"
+echo "Reza --> Prepare prod folder."
 prepare_prod
-echo "Reza --> Adding the changes"
-commit_website_files
-echo "Reza --> Committed the crimes, now pushing with force!"
-upload_files || cleanup
+echo "Reza --> Adding the changes."
+commit_website_files || upload_files || cleanup
 echo "Reza --> Deployed."
