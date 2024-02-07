@@ -1,16 +1,14 @@
 #!/bin/sh
-SCRIPT_DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-PROD_DIR="${SCRIPT_DIR}/prod"
+MY_DIR="$(echo $(cd $(dirname $0); pwd))"
 set -e
 
 grab_commit_msg() {
-	CMT_MSG=$(git -C "$SCRIPT_DIR" log -1 --pretty=%B)
+	CMT_MSG=$(git log -1 --pretty=%B)
 }
 
 prepare_output() {
-	npm install --prefix "$SCRIPT_DIR"
-	npm run build --prefix "$SCRIPT_DIR"
-	mkdir "$PROD_DIR"
+	npm install && npm run build
+	mkdir "${MY_DIR}/prod"
 	ls -la
 }
 
@@ -24,29 +22,30 @@ setup_git() {
 }
 
 cleanup() {
-	if [ -d "${PROD_DIR}" ]; then
+	if [ -d "${MY_DIR}/prod" ]; then
 		echo "Reza --> Cleaning up."
-		rm -rf "${SCRIPT_DIR}/prod"
+		rm -rf "${MY_DIR}/prod"
 	fi
 }
 
 prepare_prod() {
-	git clone https://rteshnizi:${GH_TOKEN}@github.com/rteshnizi/rteshnizi.github.io.git "${PROD_DIR}"
-	ls -la "${PROD_DIR}"
-	find "${PROD_DIR}/" -mindepth 1 ! -regex '^.\/\.git\(\/.*\)?' -delete # CSpell: ignore - mindepth
-	cp -v -r "${SCRIPT_DIR}"/build/* "${PROD_DIR}"
+	git clone https://rteshnizi:${GH_TOKEN}@github.com/rteshnizi/rteshnizi.github.io.git "${MY_DIR}/prod"
+	cd "${MY_DIR}/prod"
+	ls -la
+	find ./ -mindepth 1 ! -regex '^.\/\.git\(\/.*\)?' -delete # CSpell: ignore - mindepth
+	cp -v -r "${MY_DIR}/build/"* ./
 }
 
 commit_website_files() {
-	git -C "$PROD_DIR" status
-	git -C "$PROD_DIR" add . -A -f
+	git status
+	git add . -A -f
 	CMT_DATE_TIME=$(date +"%Y-%m-%d %T")
-	git -C "$PROD_DIR" commit --message "Auto build-push[$CMT_DATE_TIME] --> $CMT_MSG"
+	git commit --message "Auto build-push[$CMT_DATE_TIME] --> $CMT_MSG"
 }
 
 upload_files() {
 	echo "Reza --> Committed the crimes, now pushing with force!"
-	git -C "$PROD_DIR" push origin master --force
+	git push origin master --force
 }
 
 echo "Reza --> Grabbing commit message."
