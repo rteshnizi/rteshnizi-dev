@@ -38,15 +38,15 @@ prepare_prod() {
 }
 
 commit_website_files() {
-	git status -C "$SCRIPT_DIR"
-	git add . -A -f -C "$SCRIPT_DIR"
+	git -C "$PROD_DIR" status
+	git -C "$PROD_DIR" add . -A -f
 	CMT_DATE_TIME=$(date +"%Y-%m-%d %T")
-	git commit --message "Auto build-push[$CMT_DATE_TIME] --> $CMT_MSG" -C "$SCRIPT_DIR"
+	git -C "$PROD_DIR" commit --message "Auto build-push[$CMT_DATE_TIME] --> $CMT_MSG"
 }
 
 upload_files() {
 	echo "Reza --> Committed the crimes, now pushing with force!"
-	git push origin master --force -C "$SCRIPT_DIR"
+	git -C "$PROD_DIR" push origin master --force
 }
 
 echo "Reza --> Grabbing commit message."
