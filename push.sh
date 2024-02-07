@@ -1,6 +1,7 @@
 #!/bin/sh
-MY_DIR="$(echo $(cd $(dirname $0); pwd))"
-echo "$MY_DIR"
+CALLED_FROM=`dirname $0`
+SCRIPT_DIR="$(cd -P "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+echo "$SCRIPT_DIR"
 set -e
 
 grab_commit_msg() {
@@ -23,15 +24,15 @@ setup_git() {
 }
 
 cleanup() {
-	if [ -d "${MY_DIR}/prod" ]; then
+	if [ -d "${SCRIPT_DIR}/prod" ]; then
 		echo "Reza --> Cleaning up."
-		rm -rf "${MY_DIR}/prod"
+		rm -rf "${SCRIPT_DIR}/prod"
 	fi
 }
 
 prepare_prod() {
 	git clone https://rteshnizi:${GH_TOKEN}@github.com/rteshnizi/rteshnizi.github.io.git prod
-	cd "${MY_DIR}/prod"
+	cd "${SCRIPT_DIR}/prod"
 	ls -la
 	find ./ -mindepth 1 ! -regex '^.\/\.git\(\/.*\)?' -delete # CSpell: ignore - mindepth
 	cp -v -r ../build/* ./
@@ -49,6 +50,7 @@ upload_files() {
 	git push origin master --force
 }
 
+cd $SCRIPT_DIR
 echo "Reza --> Grabbing commit message."
 grab_commit_msg
 echo "Reza --> Preparing the output and cleaning dev files."
@@ -61,3 +63,4 @@ prepare_prod
 echo "Reza --> Adding the changes."
 (commit_website_files && upload_files) || cleanup
 echo "Reza --> Deployed."
+cd $CALLED_FROM
