@@ -13,7 +13,7 @@ prepare_output() {
 }
 
 setup_git() {
-	if [[ -z "${GH_TOKEN}" ]]; then
+	if [ -z "${GH_TOKEN}" ]; then
 		echo "Github token not defined."
 		exit 1
 	fi
@@ -53,7 +53,7 @@ grab_commit_msg
 echo "Reza --> Preparing the output and cleaning dev files."
 cleanup
 prepare_output
-echo "Reza --> Setting up Git user and add prod remote."
+echo "Reza --> Setting up Git and add prod remote."
 setup_git
 echo "Reza --> Prepare prod folder."
 prepare_prod
