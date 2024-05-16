@@ -4,126 +4,131 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-@prefix rt_bi: <https://rezateshnizi.com/rt-bi#> .
-
-<https://rezateshnizi.com/rt-bi#> a owl:Ontology ;
+<https://rezateshnizi.com/rt-bi/> a owl:Ontology ;
 	dc:title "The vocabulary used in RT Behavior Inference." ;
-	dc:date "2024-02-06" ;
+	dc:date "2024-05-15" ;
 	dc:description "This is the RDF Schema for the terms in RT Behavior Automata, defined in the dissertation of Reza Teshnizi." .
 
-######################### ABSTRACT ########################
-# region: abstract
-rt_bi:Subject a rdfs:Resource ;
-	rdfs:isDefinedBy <https://rezateshnizi.com/rt-bi#> ;
-	rdfs:label "Subject" ;
-	rdfs:comment "An instance of a class." .
+@prefix class: <https://rezateshnizi.com/rt-bi/class#> .
+# region [CLASSES]
+class:X a rdfs:Class .
+class:Y a rdfs:Class .
+class:Pt a rdfs:Class ;
+	rdfs:comment "Has an X and a Y" .
+class:PtSeq a rdfs:Class ;
+	rdfs:subClassOf rdf:Seq ;
+	rdfs:comment "To indicate to a human reader that the members are ordered points." .
+class:Vertex a rdfs:Class ;
+	rdfs:subClassOf rdfs:ContainerMembershipProperty ;
+	rdfs:subPropertyOf rdfs:member ;
+	rdfs:domain class:PtSeq ;
+	rdfs:range class:Pt ;
+	rdfs:comment "A class:Pt whose order of placement in the container owning the point matters." .
+class:Polygon a rdfs:Class .
+class:Time a rdfs:Class .
+class:Interval a rdfs:Class .
+class:Subject a rdfs:Class .
+class:SpaceTime a rdfs:Class ;
+	rdfs:subClassOf class:Subject ;
+	rdfs:comment "The class of Regular Space-Time Set specifications." .
+class:Material a rdfs:Class ;
+	rdfs:subClassOf class:Subject ;
+	rdfs:comment "The class of material specifications." .
+# endregion [CLASSES]
 
-rt_bi:Property a rdf:Property ;
-	rdfs:isDefinedBy <https://rezateshnizi.com/rt-bi#> ;
-	rdfs:label "Property" ;
-	rdfs:comment "Properties of subjects." ;
-	rdfs:domain rt_bi:Subject ;
-	rdfs:range rdfs:Resource .
+# region [PtSeq Members]
+class:v_101 a class:Vertex .
+class:v_102 a class:Vertex .
+class:v_103 a class:Vertex .
+class:v_104 a class:Vertex .
+class:v_105 a class:Vertex .
+class:v_106 a class:Vertex .
+class:v_107 a class:Vertex .
+class:v_108 a class:Vertex .
+class:v_109 a class:Vertex .
+class:v_110 a class:Vertex .
+class:v_111 a class:Vertex .
+class:v_112 a class:Vertex .
+class:v_113 a class:Vertex .
+class:v_114 a class:Vertex .
+class:v_115 a class:Vertex .
+class:v_116 a class:Vertex .
+class:v_117 a class:Vertex .
+class:v_118 a class:Vertex .
+class:v_119 a class:Vertex .
+class:v_120 a class:Vertex .
+# endregion [PtSeq Members]
 
-# endregion
-####################### THE SUBJECTS ######################
-# region: subjects
-rt_bi:Agent a rt_bi:Subject ;
-	rdfs:isDefinedBy <https://rezateshnizi.com/rt-bi#> ;
-	rdfs:label "Agent" ;
-	rdfs:comment "A term describing an agent." .
+@prefix subject: <https://rezateshnizi.com/rt-bi/subject#> .
+# region [SUBJECT PROPS]
+subject:name a rdfs:label ;
+	rdfs:domain class:Subject ;
+	rdfs:range xsd:string ;
+	rdfs:comment "A name for this object." .
+subject:color a rdf:Property ;
+	rdfs:domain class:Subject ;
+	rdfs:range xsd:string ;
+	rdfs:comment "Color to describe this area (and use in render)." .
+subject:channel a rdf:Property ;
+	rdfs:domain class:Subject ;
+	rdfs:range xsd:string ;
+	rdfs:comment "The ID of the ROS communication channel publishing updates for this Subject." .
+# endregion [SUBJECT PROPS]
 
-rt_bi:Space a rt_bi:Subject ;
-	rdfs:isDefinedBy <https://rezateshnizi.com/rt-bi#> ;
-	rdfs:label "Space" ;
-	rdfs:comment "A term describing a spatial region." .
+@prefix spatial: <https://rezateshnizi.com/rt-bi/spatial#> .
+# region [SPATIAL PROPS]
+spatial:vertices a rdf:Property ;
+	rdfs:domain class:Polygon ;
+	rdfs:range class:PtSeq ;
+	rdfs:comment "The vertices of a polygon." .
+spatial:x a rdf:Property ;
+	rdfs:domain class:Pt ;
+	rdfs:range class:X ;
+	rdfs:comment "The x Coordinate." .
+spatial:y a rdf:Property ;
+	rdfs:domain class:Pt ;
+	rdfs:range class:Y ;
+	rdfs:comment "The y Coordinate." .
+spatial:x_val a rdf:value ;
+	rdfs:domain class:X ;
+	rdfs:range xsd:double ;
+	rdfs:comment "Some x value." .
+spatial:y_val a rdf:value ;
+	rdfs:domain class:Y ;
+	rdfs:range xsd:double ;
+	rdfs:comment "Some y value." .
+spatial:geometry a rdf:Property ;
+	rdfs:domain class:SpaceTime ;
+	rdfs:range class:Polygon .
+spatial:material a rdf:Property ;
+	rdfs:domain class:SpaceTime ;
+	rdfs:range class:Material ;
+	rdfs:comment "The range of this property is a Material specification." .
+# endregion [SPATIAL PROPS]
 
-rt_bi:Time a rt_bi:Subject ;
-	rdfs:isDefinedBy <https://rezateshnizi.com/rt-bi#> ;
-	rdfs:label "Time" ;
-	rdfs:comment "A term describing a temporal region." .
-
-# endregion
-###################### THE PROPERTIES #####################
-# region: properties
-rt_bi:symbol a rt_bi:Property ;
-	rdfs:isDefinedBy <https://rezateshnizi.com/rt-bi#> ;
-	rdfs:label "symbol" ;
-	rdfs:comment "Symbol to show in Alphabet." ;
-	rdfs:domain rt_bi:Subject ;
-	rdfs:range xsd:string .
-
-rt_bi:walks a rt_bi:Property ;
-	rdfs:isDefinedBy <https://rezateshnizi.com/rt-bi#> ;
-	rdfs:label "walks" ;
-	rdfs:comment "Whether subject can walk." ;
-	rdfs:domain rt_bi:Subject ;
-	rdfs:range xsd:boolean .
-
-rt_bi:drives a rt_bi:Property ;
-	rdfs:isDefinedBy <https://rezateshnizi.com/rt-bi#> ;
-	rdfs:label "drives" ;
-	rdfs:comment "Whether subject can drive." ;
-	rdfs:domain rt_bi:Subject ;
-	rdfs:range xsd:boolean .
-
-rt_bi:swims a rt_bi:Property ;
-	rdfs:isDefinedBy <https://rezateshnizi.com/rt-bi#> ;
-	rdfs:label "swims" ;
-	rdfs:comment "Whether subject can swim." ;
-	rdfs:domain rt_bi:Subject ;
-	rdfs:range xsd:boolean .
-
-rt_bi:color a rt_bi:Property ;
-	rdfs:isDefinedBy <https://rezateshnizi.com/rt-bi#> ;
-	rdfs:label "color" ;
-	rdfs:comment "The visible color of the object." ;
-	rdfs:domain rt_bi:Subject ;
-	rdfs:range xsd:string .
-
-rt_bi:business_hours a rt_bi:Property ;
-	rdfs:isDefinedBy <https://rezateshnizi.com/rt-bi#> ;
-	rdfs:label "business_hours" ;
-	rdfs:comment "Indicator of whether this is a business hour time." ;
-	rdfs:domain rt_bi:Subject ;
-	rdfs:range xsd:boolean .
-
-# endregion
-############## BEHAVIOR AUTOMATON VOCABULARY ##############
-# region: behavior automaton
-rt_bi:Automaton a rdfs:Class ;
-	rdfs:isDefinedBy <https://rezateshnizi.com/rt-bi#> ;
-	rdfs:label "Automaton" ;
-	rdfs:comment "The class of Behavior Automata." .
-
-rt_bi:state a rdf:Property ;
-	rdfs:isDefinedBy <https://rezateshnizi.com/rt-bi#> ;
-	rdfs:label "state" ;
-	rdfs:comment "The subject is a BA and object a string." ;
-	rdfs:domain rt_bi:Automaton ;
-	rdfs:range xsd:string .
-
-rt_bi:transition a rdf:Property ;
-	rdfs:isDefinedBy <https://rezateshnizi.com/rt-bi#> ;
-	rdfs:label "transition" ;
-	rdfs:comment "The class of BA transitions." ;
-	rdfs:domain rt_bi:Automaton ;
-	rdfs:range rt_bi:Subject .
-
-rt_bi:from a rdf:Property ;
-	rdfs:isDefinedBy <https://rezateshnizi.com/rt-bi#> ;
-	rdfs:label "from" ;
-	rdfs:comment "The subject is a rt_bi:transition and object a state." ;
-	rdfs:subPropertyOf rt_bi:transition ;
-	rdfs:domain rt_bi:transition ;
-	rdfs:range rt_bi:state .
-
-rt_bi:to a rdf:Property ;
-	rdfs:isDefinedBy <https://rezateshnizi.com/rt-bi#> ;
-	rdfs:label "to" ;
-	rdfs:comment "The subject is a rt_bi:transition and object a state." ;
-	rdfs:subPropertyOf rt_bi:transition ;
-	rdfs:domain rt_bi:transition ;
-	rdfs:range rt_bi:state .
-
-# endregion
+@prefix temporal: <https://rezateshnizi.com/rt-bi/temporal#> .
+# region [TEMPORAL PROPS]
+temporal:secs a rdf:value ;
+	rdfs:domain class:Time ;
+	rdfs:range xsd:double ;
+	rdfs:comment "A time value in Seconds." .
+temporal:min a rdf:Property ;
+	rdfs:domain class:Interval ;
+	rdfs:range class:Time ;
+	rdfs:comment "The min bound of a time interval." .
+temporal:max a rdf:Property ;
+	rdfs:domain class:Interval ;
+	rdfs:range class:Time ;
+	rdfs:comment "The max bound of a time interval." .
+temporal:include_min a rdf:Property ;
+	rdfs:domain class:Interval ;
+	rdfs:range xsd:boolean ;
+	rdfs:comment "Whether the min bound is included in the interval" .
+temporal:include_max a rdf:Property ;
+	rdfs:domain class:Interval ;
+	rdfs:range xsd:boolean ;
+	rdfs:comment "Whether the max bound is included in the interval" .
+temporal:intervals a rdf:Property ;
+	rdfs:domain class:SpaceTime ;
+	rdfs:range class:Interval .
+# endregion [TEMPORAL PROPS]
